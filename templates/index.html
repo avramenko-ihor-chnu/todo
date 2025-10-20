@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>HTMX todo app</title>
+    <script src="https://unpkg.com/htmx.org@2.0.0/dist/htmx.min.js"></script>
+  </head>
+  <body>
+    <h1>HTMX Todo App</h1>
+    <form hx-post="/add-todo" hx-target="#todos" hx-swap="innerHTML">
+      <input
+        type="text"
+        name="title"
+        placeholder="Add title of the todo"
+        required
+      >
+      <button type="submit">Add Todo</button>
+    </form>
+    <div id="todos" hx-get="/todos" hx-trigger="load"></div>
+  </body>
+</html>
